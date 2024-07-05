@@ -30,9 +30,21 @@ def init_track(word):
 
 def update_track(track, word, letter):
     new_track = ''
+    letter = letter.upper()
     for i in range(len(word)):
         if word[i] == letter:
             new_track += f'  {letter}  '
         else:
             new_track += track[i*5:i*5+5]
     return new_track
+
+
+def button_clicked(btn):
+    return btn['text']
+
+
+def find_letter(letter, word):
+    if letter in word:
+        return True
+    else:
+        return False
