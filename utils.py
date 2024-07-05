@@ -6,6 +6,7 @@ def random_word():
     words_list = []
     with open('hangman_words.csv', 'r') as words_file:
         data = csv.reader(words_file)
+        next(data)
         for row in data:
             words_list.append(row[0])
         random_index = random.randint(0, len(words_list)-1)
