@@ -1,0 +1,53 @@
+import csv
+
+# List of words
+words = [
+    # Fruits
+    ("APPLE", "FRUIT"), ("BANANA", "FRUIT"), ("CHERRY", "FRUIT"), ("ELDERBERRY", "FRUIT"), ("FIG", "FRUIT"),
+    ("GRAPE", "FRUIT"), ("KIWI", "FRUIT"), ("LEMON", "FRUIT"), ("MANGO", "FRUIT"), ("PAPAYA", "FRUIT"),
+    ("PEACH", "FRUIT"), ("PINEAPPLE", "FRUIT"), ("ORANGE", "FRUIT"), ("PEAR", "FRUIT"), ("STRAWBERRY", "FRUIT"),
+    ("WATERMELON", "FRUIT"), ("BLUEBERRY", "FRUIT"), ("BLACKBERRY", "FRUIT"), ("COCONUT", "FRUIT"), ("LIME", "FRUIT"),
+
+    # Animals
+    ("TIGER", "ANIMAL"), ("ELEPHANT", "ANIMAL"), ("GIRAFFE", "ANIMAL"), ("KANGAROO", "ANIMAL"), ("DOLPHIN", "ANIMAL"),
+    ("PANDA", "ANIMAL"), ("ZEBRA", "ANIMAL"), ("PENGUIN", "ANIMAL"), ("KOALA", "ANIMAL"), ("ALLIGATOR", "ANIMAL"),
+    ("RHINOCEROS", "ANIMAL"), ("LION", "ANIMAL"), ("BEAR", "ANIMAL"), ("WOLF", "ANIMAL"), ("RABBIT", "ANIMAL"),
+    ("FOX", "ANIMAL"), ("DEER", "ANIMAL"), ("MONKEY", "ANIMAL"), ("LEOPARD", "ANIMAL"), ("HIPPOPOTAMUS", "ANIMAL"),
+
+    # Instruments
+    ("GUITAR", "INSTRUMENT"), ("PIANO", "INSTRUMENT"), ("VIOLIN", "INSTRUMENT"), ("DRUM", "INSTRUMENT"),
+    ("FLUTE", "INSTRUMENT"), ("SAXOPHONE", "INSTRUMENT"), ("TRUMPET", "INSTRUMENT"), ("HARP", "INSTRUMENT"),
+    ("CELLO", "INSTRUMENT"), ("CLARINET", "INSTRUMENT"), ("TROMBONE", "INSTRUMENT"), ("BANJO", "INSTRUMENT"),
+    ("ACCORDION", "INSTRUMENT"), ("OBOE", "INSTRUMENT"), ("UKULELE", "INSTRUMENT"),
+
+    # Sports
+    ("BASEBALL", "SPORT"), ("SOCCER", "SPORT"), ("BASKETBALL", "SPORT"), ("TENNIS", "SPORT"), ("HOCKEY", "SPORT"),
+    ("GOLF", "SPORT"), ("CRICKET", "SPORT"), ("SWIMMING", "SPORT"), ("BOXING", "SPORT"), ("VOLLEYBALL", "SPORT"),
+    ("RUGBY", "SPORT"), ("BADMINTON", "SPORT"), ("SKIING", "SPORT"), ("SURFING", "SPORT"), ("WRESTLING", "SPORT"),
+
+    # Professions
+    ("DOCTOR", "PROFESSION"), ("ENGINEER", "PROFESSION"), ("TEACHER", "PROFESSION"), ("LAWYER", "PROFESSION"),
+    ("NURSE", "PROFESSION"), ("CHEF", "PROFESSION"), ("ARCHITECT", "PROFESSION"), ("PILOT", "PROFESSION"),
+    ("SCIENTIST", "PROFESSION"), ("ARTIST", "PROFESSION"), ("DENTIST", "PROFESSION"), ("FIREFIGHTER", "PROFESSION"),
+    ("JOURNALIST", "PROFESSION"), ("PLUMBER", "PROFESSION"), ("VETERINARIAN", "PROFESSION"),
+
+    # Objects
+    ("TABLE", "OBJECT"), ("CHAIR", "OBJECT"), ("LAPTOP", "OBJECT"), ("PHONE", "OBJECT"), ("BOOK", "OBJECT"),
+    ("PEN", "OBJECT"), ("NOTEBOOK", "OBJECT"), ("LAMP", "OBJECT"), ("CLOCK", "OBJECT"), ("CAMERA", "OBJECT"),
+    ("REMOTE", "OBJECT"), ("MICROWAVE", "OBJECT"), ("FRIDGE", "OBJECT"), ("STOVE", "OBJECT"), ("TELEVISION", "OBJECT"),
+
+    # Cities
+    ("NEWYORK", "CITY"), ("LONDON", "CITY"), ("PARIS", "CITY"), ("TOKYO", "CITY"), ("SYDNEY", "CITY"),
+    ("BERLIN", "CITY"), ("MOSCOW", "CITY"), ("TORONTO", "CITY"), ("ROME", "CITY"), ("MADRID", "CITY"),
+    ("VIENNA", "CITY"), ("CHICAGO", "CITY"), ("MIAMI", "CITY"), ("OSLO", "CITY"), ("DUBAI", "CITY")
+]
+
+
+def generate_csv():
+    with open('hangman_words.csv', 'w', newline='') as csvfile:
+        fieldnames = ['WORD', 'CATEGORY']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for word, category in words:
+            writer.writerow({'WORD': word, 'CATEGORY': category})
