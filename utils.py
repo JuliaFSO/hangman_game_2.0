@@ -24,7 +24,7 @@ def get_cat(word):
 
 
 def init_track(word):
-    dash = ' ___ '
+    dash = ' _ '
     track = dash*len(word)
     return track
 
@@ -34,14 +34,21 @@ def update_track(track, word, letter):
     letter = letter.upper()
     for i in range(len(word)):
         if word[i] == letter:
-            new_track += f'  {letter}  '
+            new_track += f' {letter} '
         else:
-            new_track += track[i*5:i*5+5]
+            new_track += track[i*3:i*3+3]
     return new_track
 
 
 def button_clicked(btn):
     return btn['text']
+
+
+def format_word(word):
+    formatted_word = ''
+    for letter in word:
+        formatted_word += f' {letter} '
+    return formatted_word
 
 
 def find_letter(letter, word):
