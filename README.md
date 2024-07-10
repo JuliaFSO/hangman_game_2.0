@@ -34,6 +34,14 @@ Welcome to Hangman Game, a classic word guessing game brought to life with Pytho
     - You'll receive feedback on your guesses and see your progress updating.
     - Win by guessing the word correctly or lose after too many incorrect guesses.
 
+4. **Screenshots**:
+   
+   ![screen3](https://github.com/JuliaFSO/hangman_game_2.0/assets/81381511/f8122de6-97af-4106-8925-2a5d5cd2f713)    ![screen1](https://github.com/JuliaFSO/hangman_game_2.0/assets/81381511/390e9c3b-82fa-418d-bc09-3db389559c23)
+
+   ![screen4](https://github.com/JuliaFSO/hangman_game_2.0/assets/81381511/77f42b66-a075-47da-a00c-46c60cb8cbc0)    ![screen6](https://github.com/JuliaFSO/hangman_game_2.0/assets/81381511/cb914ff3-322e-4b8f-92c4-c991d28d3102)
+
+
+
 Have fun playing Hangman and challenge your vocabulary skills! 🎩💀
 
 ---
