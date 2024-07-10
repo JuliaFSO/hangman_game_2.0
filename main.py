@@ -6,8 +6,6 @@ def main():
     generate_csv()
     word = random_word()
     category = get_cat(word)
-    print(word)
-    print(category)
     root = create_main_window(word)
     root.mainloop()
 
