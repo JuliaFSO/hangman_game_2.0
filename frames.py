@@ -29,7 +29,7 @@ def disable_buttons(letters_frame):
         btn.config(state=tk.DISABLED)
 
 
-def button_state(b, word, track_label, result_frame, category_label, letters_frame, category_frame):
+def button_state(b, word, track_label, result_frame, category_label, letters_frame, track_frame):
     global tries, hangman_image_label, result_label
     b.config(state=tk.DISABLED)
     letter = button_clicked(b)
@@ -39,11 +39,11 @@ def button_state(b, word, track_label, result_frame, category_label, letters_fra
         new_track = update_track(current_track, word, letter)
         track_label.config(text=new_track)
         if word == new_track.replace(' ', ''):
-            category_label.config(text=f"The {get_cat(word)} is:", font=('Verdana', 25, 'bold'), padx=30)
+            category_label.config(text=f"The word is:", font=('Verdana', 25, 'bold'), padx=30)
             formatted_word = format_word(word)
             track_label.config(text=formatted_word, font=('Verdana', 25, 'bold'), fg='#9E4250', padx=30)
             display_great_job(result_frame)
-            display_play_again_button(category_frame, root, word)
+            display_play_again_button(track_frame, root, word)
             disable_buttons(letters_frame)
         else:
             result_label.config(text=f"Yeah, '{letter}' is in.", font=('Verdana', 30, 'bold'), fg='#498563', padx=50, pady=50)
@@ -57,12 +57,12 @@ def button_state(b, word, track_label, result_frame, category_label, letters_fra
             update_hangman_image()
         else:
             tries += 1
-            category_label.config(text=f"The {get_cat(word)} was:", font=('Verdana', 25, 'bold'), padx=30)
+            category_label.config(text=f"The word was:", font=('Verdana', 25, 'bold'), padx=30)
             formatted_word = format_word(word)
             track_label.config(text=formatted_word, font=('Verdana', 25, 'bold'), fg='#9E4250', padx=30)
             update_hangman_image()
             display_better_luck(result_frame)
-            display_play_again_button(category_frame, root, word)
+            display_play_again_button(track_frame, root, word)
             disable_buttons(letters_frame)
 
 
@@ -89,13 +89,13 @@ def create_frames(root, word):
     category_frame.configure(bg="#FFDDC1", bd=0)
     category_frame.grid(row=0, column=0, padx=20, pady=10, sticky='nsew')
 
-    category_label = tk.Label(category_frame, text=f"Guess the {get_cat(word)}:",
+    category_label = tk.Label(category_frame, text=f"Guess the {get_cat(word)}",
                               font=('Verdana', 25, 'bold'), fg='#34A0A4', bg='#FFDDC1', padx=30)
     category_label.grid(row=0, column=0)
 
     track_frame = tk.LabelFrame(category_track_frame)
     track_frame.configure(bg="#FFDDC1", bd=0)
-    track_frame.grid(row=1, column=0, columnspan=2, sticky='nsew')
+    track_frame.grid(row=1, column=0, sticky='nsew', ipadx=80)
 
     track_label = tk.Label(track_frame, text=init_track(word), font=('Verdana', 25, 'bold'), bg='#FFDDC1', padx=30)
     track_label.grid(row=0, column=0, padx=20, pady=10)
@@ -166,7 +166,7 @@ def display_better_luck(result_frame):
     better_luck_image_label.grid(row=0, column=0)
 
 
-def display_play_again_button(category_frame, root, word):
+def display_play_again_button(track_frame, root, word):
     global play_again_image_label
     play_again = "./images/play_again_small.png"
     play_image = Image.open(play_again)
@@ -175,10 +175,10 @@ def display_play_again_button(category_frame, root, word):
     if play_again_image_label is not None:
         play_again_image_label.grid_forget()
 
-    play_again_image_label = tk.Button(category_frame, image=tk_image, bg="#FFDDC1", command=lambda: reset_game(root),
+    play_again_image_label = tk.Button(track_frame, image=tk_image, bg="#FFDDC1", command=lambda: reset_game(root),
                                        bd=0, relief=tk.FLAT, highlightthickness=0)
     play_again_image_label.image = tk_image
-    play_again_image_label.grid(row=0, column=2, stick="e")
+    play_again_image_label.grid(row=1, column=1, stick="e")
 
 
 def create_main_window(word):
